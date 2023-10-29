@@ -1,0 +1,40 @@
+import {  Grid, styled } from '@mui/material';
+
+import { ImageURL } from '../../constant/data';
+
+const Wrapper = styled(Grid)`
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+`;
+
+const Image = styled('img')(({ theme }) => ({ 
+    display: 'flex',
+    marginTop: 20,
+    justifyContent: 'space-between',
+    width: '100%',
+    [theme.breakpoints.down('md')]: {
+        objectFit: 'cover',
+        height: 120
+    }
+}));
+
+const MidSection = () => {
+    const url = 'https://rukminim1.flixcart.com/fk-p-flap/1600/140/image/c0b62e6c3d7b6203.jpg?q=20';
+    return (
+        <>
+            <Wrapper lg={12} sm={12} md={12} xs={12} container>
+                {
+                    ImageURL.map(image => (
+                        <Grid item lg={4} md={4} sm={12} xs={12}>
+                            <img src={image} style={{ width: '100%' }} alt='Banners' />
+                        </Grid>
+                    ))
+                }
+            </Wrapper>
+            <Image src={url} alt='bank-discount' />
+        </>
+    )
+}
+
+export default MidSection;
